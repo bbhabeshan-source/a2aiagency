@@ -84,7 +84,7 @@ section{padding:100px 0;position:relative}
 @keyframes drift{from{scale:1.04}to{scale:1.14;translate:-2% -2%}}
 .step-num{width:48px;height:48px;border-radius:50%;background:var(--olive);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;margin-bottom:16px;box-shadow:0 0 0 8px rgba(107,122,42,.15)}
 
-/* Founders: cream background, circle photos with glow */
+/* Founders */
 #founders{background:linear-gradient(180deg,#fbf5e6 0%,#f6ecd2 100%)}
 .founders-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:26px;max-width:820px;margin:0 auto}
 .founder{text-align:center;padding:44px 28px 32px;overflow:visible}
@@ -186,9 +186,65 @@ header.scrolled .menu-toggle span{background:var(--olive-dark)}.menu-toggle.open
 .founder .photo{width:290px;height:290px}
 .founder h3{font-size:1.5rem}
 .founder .role{font-size:1.1rem}
+.founder .photo{border-radius:50%;background:radial-gradient(circle at 30% 30%,#f4f7e2,#d3dd9a)}
+.founder .tg{display:inline-block;margin-top:10px;padding:6px 16px;border-radius:30px;background:var(--olive-light);color:var(--olive-dark);font-weight:600;font-size:.95rem;transition:background .25s,color .25s,transform .25s}
+.founder .tg:hover{background:var(--olive-bright);color:var(--olive-deep);transform:translateY(-2px)}
 
 @media(max-width:800px){.hero-grid{grid-template-columns:1fr;gap:36px}.hero-pic{max-width:300px}.hero{padding:110px 0 80px}nav ul,nav>.btn{display:none}.menu-toggle{display:block}.showcase{grid-template-columns:1fr;gap:36px}.form-grid{grid-template-columns:1fr}.chat-card{width:calc(100vw - 44px)}.logo span{font-size:1.1rem}.modal-box{padding:34px 22px}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal,.reveal.fly-left,.reveal.fly-right,.reveal.fly-bottom{opacity:1;transform:none}}
+
+/* ===== MOBILE FIXES ===== */
+html,body{overflow-x:hidden;max-width:100%}
+img{max-width:100%}
+.grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr))}
+.vgrid{grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr))}
+.services-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))}
+.ex-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr))}
+.founders-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr))}
+@media(max-width:800px){
+.reveal.left,.reveal.right{transform:translateY(40px)}
+.reveal.fly-left,.reveal.fly-right,.reveal.fly-bottom{transform:translateY(80px) scale(.92)}
+.reveal.visible,.reveal.visible.left,.reveal.visible.right,.reveal.visible.fly-left,.reveal.visible.fly-right,.reveal.visible.fly-bottom{opacity:1;transform:none}
+section{padding:64px 0}
+.container{width:92%}
+.section-title{font-size:1.9rem}
+.section-sub{margin-bottom:36px;font-size:.98rem}
+.showcase h2{font-size:1.7rem}
+.cta h2{font-size:1.9rem}
+.hero{min-height:100vh;min-height:100svh;padding:100px 0 90px}
+.hero-text{text-align:center}
+.hero h1{font-size:clamp(1.9rem,8vw,2.6rem);margin-left:auto;margin-right:auto}
+.hero p{font-size:1.02rem;margin:0 auto 28px}
+.hero .btn{margin:6px}
+.hero-pic{max-width:240px}
+.badge{font-size:.72rem;padding:7px 14px;letter-spacing:.5px}
+.logo{font-size:1.05rem}
+.logo img{height:38px}
+.vcard.big{aspect-ratio:auto;min-height:400px;max-width:420px;margin:0 auto;width:100%}
+.vcard .vtext{padding:22px 20px}
+.vcard h3{font-size:1.25rem}
+.founder{padding:40px 22px 30px}
+.founder .photo{width:min(240px,100%);height:auto;aspect-ratio:1/1}
+.founder h3{font-size:1.3rem}
+.modal{padding:12px}
+.modal-box{max-height:92vh;max-height:92dvh;padding:30px 18px}
+.modal-box h2{font-size:1.6rem;padding-right:36px}
+.modal-close{top:10px;right:10px}
+.faq-q{padding:16px 18px;font-size:1rem}
+.faq-a{padding:0 18px}
+.faq-item.open .faq-a{padding:0 18px 18px}
+.reach-row a{padding:11px 18px}
+.chat-fab{right:14px;bottom:14px;width:56px;height:56px}
+.chat-card{right:14px;bottom:82px;width:calc(100vw - 28px)}
+.to-top{left:14px;bottom:14px}
+}
+@media(max-width:380px){
+.logo span{display:none}
+.hero .btn{display:block;margin:10px auto;max-width:260px;text-align:center}
+}
+@media(hover:none){
+.card:hover,.vcard:hover,.vcard.big:hover,.vcard.flycard:hover{transform:none!important}
+}
 </style></head>
 <body>
 <div id="progress"></div>
@@ -237,8 +293,18 @@ header.scrolled .menu-toggle span{background:var(--olive-dark)}.menu-toggle.open
 <section id="founders"><div class="container">
 <h2 class="section-title reveal">Meet the founders</h2><p class="section-sub reveal delay-1">The people behind A2AI Agency.</p>
 <div class="founders-grid">
-<div class="card founder reveal left"><div class="photo"><img src="https://files.catbox.moe/i0c19m.jpg" alt="ENG. Amanuel Bekele"></div><h3>ENG. Amanuel Bekele</h3><div class="role">Founder &amp; CEO</div></div>
-<div class="card founder reveal right"><div class="photo"><img src="https://files.catbox.moe/hc59pl.jpg" alt="ENG. Alazar Buzuayehu"></div><h3>ENG. Alazar Buzuayehu</h3><div class="role">Co-Founder &amp; COO</div></div>
+<div class="card founder reveal left">
+  <div class="photo"></div>
+  <h3>ENG. Amanuel Bekele</h3>
+  <div class="role">Founder &amp; CEO</div>
+  <a class="tg" href="https://t.me/Amanwa0921" target="_blank" rel="noopener">@Amanwa0921</a>
+</div>
+<div class="card founder reveal right">
+  <div class="photo"></div>
+  <h3>ENG. Alazar Buzuayehu</h3>
+  <div class="role">Co-Founder &amp; COO</div>
+  <a class="tg" href="https://t.me/ALE33888" target="_blank" rel="noopener">@ALE33888</a>
+</div>
 </div></div></section>
 
 <section id="faq" class="alt"><div class="container">
@@ -376,7 +442,7 @@ $$('.modal').forEach(function(m){m.addEventListener('click',function(e){if(e.tar
 $$('.modal-close,[data-close]').forEach(function(b){b.addEventListener('click',closeModals)});
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModals()});
 
-/* Contact form: send in the background and show a message */
+/* Contact form */
 var form=$('#contactForm'),status=$('#formStatus');
 form.addEventListener('submit',function(e){
 e.preventDefault();
